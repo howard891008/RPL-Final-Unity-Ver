@@ -24,7 +24,7 @@ public class RacketAgent : Agent
     public override void OnEpisodeBegin()
     {
         base.OnEpisodeBegin();
-        this.transform.localPosition = new Vector3(-0.2f, 0.3f, -0.03f);
+        this.transform.localPosition = new Vector3(-0.2f, 0.3f, 0.03f);
         this.transform.localEulerAngles = Vector3.zero;
         racketRb.velocity = Vector3.zero;
         racketRb.angularVelocity = Vector3.zero;
