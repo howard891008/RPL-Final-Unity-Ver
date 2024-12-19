@@ -13,7 +13,7 @@ public class RacketAgent : Agent
     public float moveSpeed = 5.0f;
     public float rotationSpeed = 100.0f;
     private float successTimer = 0f;
-    private float successDuration = 2f;
+    private float successDuration = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,8 @@ public class RacketAgent : Agent
 
         ballRb.velocity = Vector3.zero;
         ballRb.angularVelocity = Vector3.zero;
-        ball.localPosition = new Vector3(0, Random.Range(0.8f, 1.2f), 0);
+        // ball.localPosition = new Vector3(0, Random.Range(0.8f, 1.2f), 0);
+        ball.localPosition = new Vector3(0, 1f, 0);
 
         successTimer = 0f;
     }
@@ -39,7 +40,7 @@ public class RacketAgent : Agent
     {
         base.CollectObservations(sensor);
         sensor.AddObservation(ball.localPosition);
-        sensor.AddObservation(ballRb.velocity.y);
+        sensor.AddObservation(ballRb.velocity);
 
         sensor.AddObservation(this.transform.localPosition);
         sensor.AddObservation(this.transform.localEulerAngles.z);
@@ -60,11 +61,11 @@ public class RacketAgent : Agent
         AddReward(-Mathf.Abs(ballRb.velocity.y) * 0.01f);
 
         if(distance < 0.1f && ballRb.velocity.magnitude < 0.1f){
-            AddReward(0.01f);
+            AddReward(0.05f);
             successTimer += Time.fixedDeltaTime;
             if(successTimer >= successDuration){
                 Debug.Log("Succeed");
-                AddReward(1.0f);
+                AddReward(2.0f);
                 EndEpisode();
             }
         }

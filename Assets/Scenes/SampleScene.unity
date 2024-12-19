@@ -3100,6 +3100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainingArea
       objectReference: {fileID: 0}
+    - target: {fileID: 4889085229176520965, guid: 00114166a13552a4ca01ea8bdb6982de, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7274532822568152808, guid: 00114166a13552a4ca01ea8bdb6982de, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
