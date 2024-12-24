@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "RPL Final.sln"
+    "dotnet.defaultSolution": "RPL-Final-Unity-Ver.sln"
 }
